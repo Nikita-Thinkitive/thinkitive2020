@@ -12,18 +12,17 @@ import com.thinkitive.entity.ArtistEntity;
 public class ArtistService {
 	
 	@Autowired
-	ArtistRepository repo;
+	ArtistRepository artistRepository;
 	
 	
 	public List<ArtistEntity> show()
 	{
-		List al=repo.findAll();
-		return al;
+		return artistRepository.findAll();
 	}
 	
 	public ArtistEntity insert(ArtistEntity artist)
 	{
-		return repo.save(artist);
+		return artistRepository.save(artist);
 	}
 	
 

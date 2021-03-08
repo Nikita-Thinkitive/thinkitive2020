@@ -1,33 +1,29 @@
 package com.thinkitive.entity;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 
 @Entity
-@Table(name="music_record")
+@Table(name = "music_record")
 public class MusicRecordEntity {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String name;
-	
-	
+
 	private Date dateOfRelease;
 
-	@OneToOne(targetEntity = ArtistEntity.class)
+	@OneToOne(targetEntity = ArtistEntity.class, cascade = CascadeType.ALL)
 	private ArtistEntity artists;
 
 	public int getId() {
@@ -67,10 +63,5 @@ public class MusicRecordEntity {
 		return "MusicRecordEntity [id=" + id + ", name=" + name + ", dateOfRelease=" + dateOfRelease + ", artists="
 				+ artists + "]";
 	}
-	
-	
-	
-	
-	
 
 }

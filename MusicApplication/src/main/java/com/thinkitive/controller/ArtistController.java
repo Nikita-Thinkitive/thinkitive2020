@@ -23,8 +23,8 @@ public class ArtistController {
 	}
 
 	@PostMapping("/artist")
-	public void insert(@RequestBody ArtistEntity artist) {
-		artistService.insert(artist);
+	public ArtistEntity insert(@RequestBody ArtistEntity artist) {
+		return artistService.insert(artist);
 	}
 
 }
